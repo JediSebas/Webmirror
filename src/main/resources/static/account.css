@@ -1,0 +1,75 @@
+.tileBox{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+}
+.tileBox .tile{
+    position: relative;
+    padding: 30px;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    background: var(--tile);
+    color: var(--black);
+    margin-bottom: 30px;
+}
+.tileBox .tile .tileName{
+    font-size: 2.1em;
+    margin-top: 10px;
+}
+.tileBox .tile .description{
+    font-size: 1rem;
+}
+.tileBox .tile .photoBox{
+    margin-left: 10px;
+}
+.tileBox .tile .photoBox img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius:30px;
+}
+.tileBox .tile ul li{
+    margin-bottom: 5px;
+    font-size:16px;
+}
+.tileBox .tile ul li a{
+    text-decoration: none;
+    color:var(--black);
+}
+.tileBox .tile ul li:last-child a{
+    color: red;
+}
+.tileBox .tile ul li a:hover{
+    text-decoration: underline;
+}
+@media (max-width:1315px){
+    .tileBox{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+@media (max-width:1041px){
+    .nav{
+        left: -330px;
+    }
+    .main{
+        width:100%;
+        left: 0;
+    }
+    .main.active{
+        left: 330px;
+    }
+    .nav.active{
+        left: 0;
+        width: 330px;
+    }
+    .tileBox{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (max-width:530px){
+    .tileBox{
+        grid-template-columns: repeat(1,1fr);
+    }
+}

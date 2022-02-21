@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent mirror</title>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+    <link th:href="@{/signup.css}" rel="stylesheet" />
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</head>
+<body>
+    <div class="tile">
+        <h1>Sign up</h1>
+        <form th:action="@{/register}" th:object="${user}" method="post">
+            <h1 style="color: red;">Email taken</h1>
+            <div class="text-field">
+                <input id="name" name="name" type="text" th:field="*{name}" required>
+                <span></span>
+                <label>First name</label>
+            </div>
+            <div class="text-field">
+                <input id="lastname" name="lastname" type="text" th:field="*{lastname}" required>
+                <span></span>
+                <label>Last name</label>
+            </div>
+            <div class="text-field">
+                <input id="email" name="email" type="email" th:field="*{email}" required>
+                <span></span>
+                <label>E-mail</label>
+            </div>
+            <div class="text-field">
+                <input id="password" name="password" type="password" th:field="*{password}" required>
+                <span></span>
+                <label>Password</label>
+            </div>
+            <div class="text-field">
+                <input id="confirm_password" type="password"  required>
+                <span></span>
+                <label>Confirm password</label>
+            </div>
+            <input type="submit" value="Sign up">
+        </form>
+    </div>
+    <script type="text/javascript" th:src="@{/password.js}"></script>
+</body>

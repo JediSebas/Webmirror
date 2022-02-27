@@ -3,6 +3,7 @@ package com.jedisebas.webmirror;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,5 +53,9 @@ public class UserService {
 
     public String getUserLastnameFromDb(String name) {
         return userRepository.findLastnameByName(name);
+    }
+
+    public ArrayList<String> getPictures(Long userId) {
+        return userRepository.findPicturesByUserId(userId);
     }
 }

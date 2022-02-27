@@ -79,41 +79,8 @@
             </div>
         </div>
         <div class="tileBox">
-            <script>
-                var list = new Array("https://www.wallpaperaccess.com/full/6789526.jpg", "https://www.wallpaperaccess.com/full/261233.jpg", "https://www.wallpaperaccess.com/full/248569.jpg",
-                "https://www.wallpaperaccess.com/full/2288412.jpg", "https://www.wallpaperaccess.com/thumb/1275034.jpg",
-                "https://www.wallpaperaccess.com/thumb/1920884.png", "https://www.wallpaperaccess.com/thumb/6789524.jpg");
-                for(var i=0; i<list.length; i++) {
-                document.write('<div class="tile"><img src="' + list[i] + '" alt="date" /></div>');
-                }
-            </script>
-            <div class="tile">
-                <img src="../icons/frozone.jpg" alt="date">
-                <div class="date">30.1.2022 15:43</div>
-            </div>
-            <div class="tile">
-                <img src="../icons/frozone.jpg" alt="date">
-                <div class="date">30.1.2022 15:43</div>
-            </div>
-            <div class="tile">
-                <img src="../icons/frozone.jpg" alt="date">
-                <div class="date">30.1.2022 15:43</div>
-            </div>
-            <div class="tile">
-                <img src="../icons/frozone.jpg" alt="date">
-                <div class="date">30.1.2022 15:43</div>
-            </div>
-            <div class="tile">
-                <img src="../icons/frozone.jpg" alt="date">
-                <div class="date">30.1.2022 15:43</div>
-            </div>
-            <div class="tile">
-                <img src="../icons/frozone.jpg" alt="date">
-                <div class="date">30.1.2022 15:43</div>
-            </div>
-            <div class="tile">
-                <img src="../icons/frozone.jpg" alt="date">
-                <div class="date">30.1.2022 15:43</div>
+            <div class="tile" th:each="picture: ${pictures}">
+                <img th:src="${picture}" alt="date">
             </div>
         </div>
 

@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 @Repository
@@ -20,4 +21,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT lastname from User u WHERE u.name = ?1")
     String findLastnameByName(String name);
+
+    @Query(value = "SELECT name FROM pictures WHERE userid = ?1", nativeQuery = true)
+    ArrayList<String> findPicturesByUserId(Long userId);
 }

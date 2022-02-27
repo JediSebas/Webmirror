@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -16,9 +18,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
+    @GetMapping("/user")
     @ResponseBody
-    @RequestMapping(path = "user")
     public List<User> getUsers() {
         return userService.getUsers();
     }
@@ -80,6 +81,13 @@ public class UserController {
     public String galleryView(Model model, @PathVariable String name) {
         model.addAttribute("helloname", name);
         if (LoggedUser.isLogged && name.equals(LoggedUser.name)) {
+            List<String> pictures = userService.getPictures(LoggedUser.id);
+            System.out.println(pictures);
+            List<String> picturesFinal = new ArrayList<>();
+            for (String str: pictures) {
+                picturesFinal.add("http://localhost/mirror/" + str);
+            }
+            model.addAttribute("pictures", picturesFinal);
             return "gallery";
         } else {
             return "redirect:/index/";

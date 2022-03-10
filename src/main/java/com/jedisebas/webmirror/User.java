@@ -13,16 +13,20 @@ public class User implements Serializable {
     private String lastname;
     private String password;
     private String email;
+    private String emailpassword;
+    private String nick;
 
     public User() {
     }
 
-    public User(Long id, String name, String lastname, String password, String email) {
+    public User(Long id, String name, String lastname, String password, String email, String emailpassword, String nick) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.password = password;
         this.email = email;
+        this.emailpassword = emailpassword;
+        this.nick = nick;
     }
 
     public Long getId() {
@@ -65,6 +69,22 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    public String getEmailpassword() {
+        return emailpassword;
+    }
+
+    public void setEmailpassword(String emailpassword) {
+        this.emailpassword = emailpassword;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
     @Override
     public String toString() {
         return "User{\n" +
@@ -72,6 +92,9 @@ public class User implements Serializable {
                 ", name='" + name + "'\n" +
                 ", lastname='" + lastname + "'\n" +
                 ", password='" + password + "'\n" +
-                ", email='" + email + "'\n}";
+                ", email='" + email + "'\n" +
+                ", emailpassword='" + emailpassword + "'\n" +
+                ", nick='" + nick + "'\n" +
+                "}";
     }
 }

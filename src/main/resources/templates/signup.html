@@ -26,9 +26,19 @@
                 <label>Last name</label>
             </div>
             <div class="text-field">
+                <input id="nick" name="nick" type="text" th:field="*{nick}" required>
+                <span></span>
+                <label>Nick</label>
+            </div>
+            <div class="text-field">
                 <input id="email" name="email" type="email" th:field="*{email}" required>
                 <span></span>
                 <label>E-mail</label>
+            </div>
+            <div class="text-field">
+                <input id="emailpassword" name="emailpassword" type="password" th:field="*{emailpassword}" required>
+                <span></span>
+                <label>E-mail password</label>
             </div>
             <div class="text-field">
                 <input id="password" name="password" type="password" th:field="*{password}" required>

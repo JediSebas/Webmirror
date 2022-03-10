@@ -40,6 +40,8 @@ public class UserService {
                 LoggedUser.lastname = userOptional.get().getLastname();
                 LoggedUser.password = userOptional.get().getPassword();
                 LoggedUser.email = userOptional.get().getEmail();
+                LoggedUser.emailPassword = userOptional.get().getEmailpassword();
+                LoggedUser.nick = userOptional.get().getNick();
                 LoggedUser.isLogged = true;
                 return true;
             }

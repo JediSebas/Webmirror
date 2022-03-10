@@ -6,5 +6,7 @@ public class LoggedUser {
     public static String lastname = null;
     public static String password = null;
     public static String email = null;
+    public static String emailPassword;
+    public static String nick;
     public static boolean isLogged = false;
 }

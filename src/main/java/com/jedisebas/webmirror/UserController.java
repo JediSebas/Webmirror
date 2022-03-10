@@ -53,6 +53,8 @@ public class UserController {
         LoggedUser.lastname = null;
         LoggedUser.password = null;
         LoggedUser.email = null;
+        LoggedUser.emailPassword = null;
+        LoggedUser.nick = null;
         LoggedUser.isLogged = false;
         return "redirect:/index/";
     }

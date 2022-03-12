@@ -18,8 +18,8 @@
     --display-sun: none;
 }
 .darkTheme{
-    --yellow:#14213D;
-    --white:#121212;
+    /* --yellow:#14213D; */
+    --white:#262322;
     --black:#E5E5E5;
     --tile:#292929;
     --display-moon: none;
@@ -62,13 +62,13 @@ body{
 }
 .nav ul li.hovered,
 .nav ul li:hover{
-    background: var(--white); 
+    background: var(--white);
 }
 .nav ul li:first-child{
     margin-bottom: 40px;
     pointer-events: none;
     border-radius: 0;
-    border-bottom:2px dashed var(--black) ;
+    border-bottom:2px dashed #262322 ;
 }
 .nav ul li:first-child a{
     font-size: 22px;
@@ -108,7 +108,11 @@ body{
     display: flex;
     width: 100%;
     text-decoration: none;
-    color: var(--black);
+    color: #262322;
+}
+.nav ul li a:hover,
+.nav ul li.hovered a{
+    color:var(--black);
 }
 .nav ul li a .icon{
     position: relative;

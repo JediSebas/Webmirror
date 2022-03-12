@@ -15,7 +15,7 @@
     <div class="tile">
         <h1>Sign up</h1>
         <form th:action="@{/register}" th:object="${user}" method="post">
-            <h1 style="color: red;">Email and nick taken</h1>
+            <h1 style="color: red;">Email taken</h1>
             <div class="text-field">
                 <input id="name" name="name" type="text" th:field="*{name}" required>
                 <span></span>

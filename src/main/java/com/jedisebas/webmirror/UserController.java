@@ -36,6 +36,18 @@ public class UserController {
         return "signuperror";
     }
 
+    @GetMapping("/signuperror2")
+    public String signuperror2View(Model model) {
+        model.addAttribute("user", new User());
+        return "signuperror2";
+    }
+
+    @GetMapping("/signuperror3")
+    public String signuperror3View(Model model) {
+        model.addAttribute("user", new User());
+        return "signuperror3";
+    }
+
     @GetMapping("/index")
     public String loginView() {
         return "index";
@@ -117,12 +129,39 @@ public class UserController {
         }
     }
 
+    @GetMapping("/home/raspberry_monitor/{name}")
+    public String raspberry_monitorView(Model model, @PathVariable String name) {
+        model.addAttribute("helloname", name);
+        if (LoggedUser.isLogged && name.equals(LoggedUser.name)) {
+            return "raspberry_monitor";
+        } else {
+            return "redirect:/index/";
+        }
+    }
+
+    @GetMapping("/home/event_log/{name}")
+    public String event_logView(Model model, @PathVariable String name) {
+        model.addAttribute("helloname", name);
+        if (LoggedUser.isLogged && name.equals(LoggedUser.name)) {
+            return "event_log";
+        } else {
+            return "redirect:/index/";
+        }
+    }
+
     @PostMapping("/register")
     public String userRegister(@ModelAttribute User user) {
-        if (userService.addNewUser(user)) {
-            return "redirect:/index/";
-        } else {
-            return "redirect:/signuperror/";
+        switch (userService.addNewUser(user)) {
+            case 0:
+                return "redirect:/index/";
+            case 1:
+                return "redirect:/signuperror/";
+            case 2:
+                return "redirect:/signuperror2/";
+            case 3:
+                return "redirect:/signuperror3/";
+            default:
+                return "redirect:/signup/";
         }
     }
 
@@ -132,5 +171,11 @@ public class UserController {
             return "redirect:/home/" + userService.getUserNameFromDb(user);
         }
         return "redirect:/loginerror/";
+    }
+
+    @PostMapping("/addevent")
+    public String addEvent(@ModelAttribute Event event) {
+        userService.addNewEvent(event);
+        return "redirect:/home/" + LoggedUser.name;
     }
 }

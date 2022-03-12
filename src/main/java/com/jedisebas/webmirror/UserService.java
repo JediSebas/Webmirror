@@ -11,27 +11,37 @@ import java.util.Optional;
 public class UserService {
 
     public final UserRepository userRepository;
+    public final EventRepository eventRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, EventRepository eventRepository) {
         this.userRepository = userRepository;
+        this.eventRepository = eventRepository;
     }
 
     public List<User> getUsers() {
         return userRepository.findAll();
     }
 
-    public boolean addNewUser(User user) {
+    public int addNewUser(User user) {
         Optional<User> userOptional = userRepository.findUserByEmail(user.getEmail());
-        if (userOptional.isPresent()) {
-            return false;
+        Optional<User> userOptional2 = userRepository.findUserByNick(user.getNick());
+        if (userOptional.isPresent() || userOptional2.isPresent()) {
+            if (userOptional.isPresent() && userOptional2.isPresent()) {
+                return 1;
+            } else if (userOptional.isPresent()) {
+                return 2;
+            } else {
+                return 3;
+            }
         }
         userRepository.save(user);
-        return true;
+        return 0;
     }
 
     public boolean loginUser(User user) {
         Optional<User> userOptional = userRepository.findUserByEmail(user.getEmail());
+        Optional<User> userOptional2 = userRepository.findUserByNick(user.getEmail());
         if (userOptional.isPresent()) {
             String password = userRepository.findPasswordByEmail(user.getEmail());
             if (password.equals(user.getPassword())) {
@@ -45,12 +55,30 @@ public class UserService {
                 LoggedUser.isLogged = true;
                 return true;
             }
+        } else if (userOptional2.isPresent()) {
+            String password = userRepository.findPasswordByNick(user.getEmail());
+            if (password.equals(user.getPassword())) {
+                LoggedUser.id = userOptional2.get().getId();
+                LoggedUser.name = userOptional2.get().getName();
+                LoggedUser.lastname = userOptional2.get().getLastname();
+                LoggedUser.password = userOptional2.get().getPassword();
+                LoggedUser.email = userOptional2.get().getEmail();
+                LoggedUser.emailPassword = userOptional2.get().getEmailpassword();
+                LoggedUser.nick = userOptional2.get().getNick();
+                LoggedUser.isLogged = true;
+                return true;
+            }
         }
         return false;
     }
 
     public String getUserNameFromDb(User user) {
-        return userRepository.findNameByEmail(user.getEmail());
+        Optional<User> userOptional = userRepository.findUserByEmail(user.getEmail());
+        if (userOptional.isPresent()) {
+            return userRepository.findNameByEmail(user.getEmail());
+        } else {
+            return userRepository.findNameByNick(user.getEmail());
+        }
     }
 
     public String getUserLastnameFromDb(String name) {
@@ -59,5 +87,9 @@ public class UserService {
 
     public ArrayList<String> getPictures(Long userId) {
         return userRepository.findPicturesByUserId(userId);
+    }
+
+    public void addNewEvent(Event event) {
+        eventRepository.save(event);
     }
 }

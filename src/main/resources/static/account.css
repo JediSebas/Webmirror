@@ -14,6 +14,14 @@
     color: var(--black);
     margin-bottom: 30px;
 }
+.submit{
+    width:100px;
+    height:50px;
+    border: none;
+    background:var(--yellow);
+    border-radius: 5px;
+    font-family: 'Terminal';
+}
 .tileBox .tile .tileName{
     font-size: 2.1em;
     margin-top: 10px;

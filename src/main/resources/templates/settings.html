@@ -80,17 +80,18 @@
             </div>
         </div>
         <div class="tileBox">
-            <div class="tile">
-                 <div>
-                    <div class="setting">
-                        <input class="dark-theme" type="checkbox" id="dark-theme-toggle">
-                    </div>
-                    <div class="settingName">Dark theme</div>
-                 </div>
-                 <div class="iconBox">
-                    <ion-icon name="contrast-outline"></ion-icon>
-                 </div>
-            </div>
+             <a th:href="@{/home/event_log/{helloname}(helloname=${helloname})}" class="tile">
+                <div class="name">Event log</div>
+                <div class="iconBox">
+                    <ion-icon name="book-outline"></ion-icon>
+                </div>
+            </a>
+            <a th:href="@{/home/raspberry_monitor/{helloname}(helloname=${helloname})}" class="tile">
+                <div class="name">Raspberry monitor</div>
+                <div class="iconBox">
+                    <ion-icon name="bar-chart-outline"></ion-icon>
+                </div>
+            </a>
         </div>
 
     </div>

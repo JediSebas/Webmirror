@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intelligent mirror</title>
     <link th:href="@{/main.css}" rel="stylesheet" />
-    <link th:href="@{/home.css}" rel="stylesheet" />
+    <link th:href="@{/settings.css}" rel="stylesheet" />
+    <link rel="shortcut icon" href="../icons/logo2.png">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+    <link rel="shortcut icon" href="../files/ico.png">
 </head>
 <body>
     <div class="navbar">
@@ -78,62 +79,7 @@
                 </a>
             </div>
         </div>
-                <div class="tileBox2">
-            <div class="tile">
-                <div>
-                    <div class="tileHeader">Add event</div>
-                    <div class="form">
-                        <form th:action="@{/addevent}" th:object="${event}" method="post">
-                            <div class="text-field">
-                                <input id="name" name="name" type="text" th:field="*{name}" required>
-                                <span></span>
-                                <label>Event name</label>
-                            </div>
-                            <div class="text-field">
-                                <input id="date" name="date" type="date" th:field="*{date}" required>
-                                <span></span>
-                            </div>
-                            <div class="text-field">
-                                <input type="time" required>
-                                <span></span>
-                            </div>
-                            <div class="text-field">
-                                <input id="howlong" name="howlong" type="text" th:field="*{howlong}" required>
-                                <span></span>
-                                <label>Warn days</label>
-                            </div>
-                            <input type="submit" value="Add event">
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="tile">
-                <div>
-                    <div class="tileHeader">Upcoming events</div>
-                    <ul class="upcomingEvents">
-                        <li>
-                            <p>Urodziny</p>
-                            01.01.2022 12:00
-                        </li>
-                        <li>
-                            <p>Urodziny</p>
-                            01.01.2022 12:00
-                        </li>
-                        <li>
-                            <p>Urodziny</p>
-                            01.01.2022 12:00
-                        </li>
-                        <li>
-                            <p>Urodziny</p>
-                            01.01.2022 12:00
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="welcome">
-            <a>Welcome,<br>
-            <span data-th-text="${helloname}">XYZ</span></a>
+        <div class="tileBox">
         </div>
 
     </div>

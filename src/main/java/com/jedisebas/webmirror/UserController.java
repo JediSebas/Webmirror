@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,10 +11,12 @@ import java.util.List;
 public class UserController {
 
     public final UserService userService;
+    public final EventService eventService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, EventService eventService) {
         this.userService = userService;
+        this.eventService = eventService;
     }
 
     @GetMapping("/user")
@@ -174,8 +175,11 @@ public class UserController {
     }
 
     @PostMapping("/addevent")
-    public String addEvent(@ModelAttribute Event event) {
-        userService.addNewEvent(event);
+    public String addEvent(@ModelAttribute Event event, @ModelAttribute EventTime time) {
+        String res = event.getDate() + " " + time.getTime();
+        event.setUserid(LoggedUser.id);
+        event.setDate(res);
+        eventService.addNewEvent(event);
         return "redirect:/home/" + LoggedUser.name;
     }
 }

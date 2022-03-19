@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 @Entity
+@Table(name = "event", schema = "event")
 public class Event implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,12 +14,12 @@ public class Event implements Serializable {
     private Long userid;
     private String name;
     private Long howlong;
-    private Calendar date;
+    private String date;
 
     public Event() {
     }
 
-    public Event(Long id, Long userid, String name, Long howlong, Calendar date) {
+    public Event(Long id, Long userid, String name, Long howlong, String date) {
         this.id = id;
         this.userid = userid;
         this.name = name;
@@ -58,11 +59,11 @@ public class Event implements Serializable {
         this.howlong = howlong;
     }
 
-    public Calendar getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Calendar date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

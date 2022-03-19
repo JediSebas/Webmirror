@@ -11,12 +11,10 @@ import java.util.Optional;
 public class UserService {
 
     public final UserRepository userRepository;
-    public final EventRepository eventRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository, EventRepository eventRepository) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.eventRepository = eventRepository;
     }
 
     public List<User> getUsers() {
@@ -87,9 +85,5 @@ public class UserService {
 
     public ArrayList<String> getPictures(Long userId) {
         return userRepository.findPicturesByUserId(userId);
-    }
-
-    public void addNewEvent(Event event) {
-        eventRepository.save(event);
     }
 }

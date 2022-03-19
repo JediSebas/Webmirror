@@ -83,22 +83,22 @@
                 <div>
                     <div class="tileHeader">Add event</div>
                     <div class="form">
-                        <form th:action="@{/addevent}" th:object="${event}" method="post">
+                        <form th:action="@{/addevent}" method="post">
                             <div class="text-field">
-                                <input id="name" name="name" type="text" th:field="*{name}" required>
+                                <input id="name" name="name" type="text" required>
                                 <span></span>
                                 <label>Event name</label>
                             </div>
                             <div class="text-field">
-                                <input id="date" name="date" type="date" th:field="*{date}" required>
+                                <input id="date" name="date" type="date" required>
                                 <span></span>
                             </div>
                             <div class="text-field">
-                                <input type="time" required>
+                                <input id="time" name="time" type="time" required>
                                 <span></span>
                             </div>
                             <div class="text-field">
-                                <input id="howlong" name="howlong" type="text" th:field="*{howlong}" required>
+                                <input id="howlong" name="howlong" type="text" required>
                                 <span></span>
                                 <label>Warn days</label>
                             </div>

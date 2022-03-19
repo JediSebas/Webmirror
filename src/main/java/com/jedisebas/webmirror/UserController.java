@@ -76,6 +76,9 @@ public class UserController {
     public String homeView(Model model, @PathVariable String name) {
         model.addAttribute("helloname", name);
         if (LoggedUser.isLogged && name.equals(LoggedUser.name)) {
+            List<Event> events = eventService.getEvents(LoggedUser.id);
+            System.out.println(events);
+            model.addAttribute("events", events);
             return "home";
         } else {
             return "redirect:/index/";

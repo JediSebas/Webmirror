@@ -111,21 +111,9 @@
                 <div>
                     <div class="tileHeader">Upcoming events</div>
                     <ul class="upcomingEvents">
-                        <li>
-                            <p>Urodziny</p>
-                            01.01.2022 12:00
-                        </li>
-                        <li>
-                            <p>Urodziny</p>
-                            01.01.2022 12:00
-                        </li>
-                        <li>
-                            <p>Urodziny</p>
-                            01.01.2022 12:00
-                        </li>
-                        <li>
-                            <p>Urodziny</p>
-                            01.01.2022 12:00
+                        <li th:each="event: ${events}">
+                            <p th:text="${event.name}"></p>
+                            <p th:text="${event.date}"></p>
                         </li>
                     </ul>
                 </div>

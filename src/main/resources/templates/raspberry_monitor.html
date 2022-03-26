@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="../icons/logo2.png">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="shortcut icon" href="../files/ico.png">
 </head>
 <body>
@@ -81,6 +82,125 @@
         </div>
         <div class="tileBox">
         </div>
+
+        <div id="cpuChart" style="width:100%; max-width:600px; height:500px;"></div>
+        <div id="ramChart" style="width:100%; max-width:600px; height:500px;"></div>
+        <div id="tempChart" style="width:100%; max-width:600px; height:500px;"></div>
+        <div id="wifiChart" style="width:100%; max-width:600px; height:500px;"></div>
+
+        <script>
+google.charts.load('current',{packages:['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+// Set Data
+var data = new google.visualization.DataTable();
+            data.addColumn('number', 'Time');
+            data.addColumn('number', 'Usage');
+            data.addRows([[${chartData}]]);
+// Set Options
+var options = {
+  title: 'CPU usage',
+  hAxis: {title: ''},
+  vAxis: {title: 'Usage in %',
+          viewWindow: {
+              max:100,
+              min:0
+          }},
+  legend: 'none'
+};
+// Draw
+var chart = new google.visualization.AreaChart(document.getElementById('cpuChart'));
+chart.draw(data, options);
+}
+</script>
+
+        <script>
+google.charts.load('current',{packages:['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+// Set Data
+var data = google.visualization.arrayToDataTable([
+  ['Time', 'Usage'],
+  [1,7],[2,8],[3,8],[4,9],[5,9],
+  [6,9],[7,10],[8,11],
+  [9,14],[10,14],[11,15],[12, 66]
+]);
+// Set Options
+var options = {
+  title: 'RAM usage',
+  hAxis: {title: ''},
+  vAxis: {title: 'Usage in %',
+          viewWindow: {
+              max:100,
+              min:0
+          }},
+  legend: 'none'
+};
+// Draw
+var chart = new google.visualization.AreaChart(document.getElementById('ramChart'));
+chart.draw(data, options);
+}
+</script>
+
+        <script>
+google.charts.load('current',{packages:['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+// Set Data
+var data = google.visualization.arrayToDataTable([
+  ['Time', 'Usage'],
+  [1,7],[2,8],[3,8],[4,9],[5,9],
+  [6,9],[7,10],[8,11],
+  [9,14],[10,14],[11,15],[12, 66]
+]);
+// Set Options
+var options = {
+  title: 'Temperature',
+  hAxis: {title: ''},
+  vAxis: {title: 'Temperature in °C',
+          viewWindow: {
+              max:100,
+              min:0
+          }},
+  legend: 'none'
+};
+// Draw
+var chart = new google.visualization.AreaChart(document.getElementById('tempChart'));
+chart.draw(data, options);
+}
+</script>
+
+        <script>
+google.charts.load('current',{packages:['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+// Set Data
+var data = google.visualization.arrayToDataTable([
+  ['Time', 'Usage'],
+  [1,7],[2,8],[3,8],[4,9],[5,9],
+  [6,9],[7,10],[8,11],
+  [9,14],[10,14],[11,15],[12, 66]
+]);
+// Set Options
+var options = {
+  title: 'WiFi usage',
+  hAxis: {title: ''},
+  vAxis: {title: 'Usage in %',
+          viewWindow: {
+              max:100,
+              min:0
+          }},
+  legend: 'none'
+};
+// Draw
+var chart = new google.visualization.AreaChart(document.getElementById('wifiChart'));
+chart.draw(data, options);
+}
+</script>
 
     </div>
     <script type="text/javascript" th:src="@{/darkTheme.js}"></script>

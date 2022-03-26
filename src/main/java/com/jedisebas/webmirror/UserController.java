@@ -136,11 +136,49 @@ public class UserController {
     @GetMapping("/home/raspberry_monitor/{name}")
     public String raspberry_monitorView(Model model, @PathVariable String name) {
         model.addAttribute("helloname", name);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    model.addAttribute("chartData", getChartData());
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
         if (LoggedUser.isLogged && name.equals(LoggedUser.name)) {
             return "raspberry_monitor";
         } else {
             return "redirect:/index/";
         }
+    }
+
+    private List<List<Object>> getChartData() {
+        return List.of(
+                List.of(1, randint()),
+                List.of(2, randint()),
+                List.of(3, randint()),
+                List.of(4, randint()),
+                List.of(5, randint()),
+                List.of(6, randint()),
+                List.of(7, randint()),
+                List.of(8, randint()),
+                List.of(9, randint()),
+                List.of(10, randint()),
+                List.of(11, randint()),
+                List.of(12, randint())
+        );
+    }
+
+    private int randint() {
+        double x;
+        x = Math.random();
+        x *= 100;
+        x = Math.round(x);
+        return (int) x;
     }
 
     @GetMapping("/home/event_log/{name}")

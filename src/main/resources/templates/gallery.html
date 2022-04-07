@@ -9,63 +9,62 @@
     <link th:href="@{/gallery.css}" rel="stylesheet" />
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 </head>
 <body>
     <div class="navbar">
-        <div class="nav">
-            <ul>
-                <li>
-                    <a>
-                        <span class="icon"><ion-icon name="code-slash-outline"></ion-icon></span>
-                        <span class="title">Intelligent Mirror</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/home/{helloname}(helloname=${helloname})}">
-                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                        <span class="title">Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/home/personalization/{helloname}(helloname=${helloname})}">
-                        <span class="icon"><ion-icon name="brush-outline"></ion-icon></span>
-                        <span class="title">Personalization</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/home/gallery/{helloname}(helloname=${helloname})}">
-                        <span class="icon"><ion-icon name="images-outline"></ion-icon></span>
-                        <span class="title">Gallery</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/home/account/{helloname}(helloname=${helloname})}">
-                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-                        <span class="title">Account</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/home/settings/{helloname}(helloname=${helloname})}">
-                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-                        <span class="title">Settings</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/logout}">
-                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                        <span class="title">Logout</span>
-                    </a>
-                </li>
-                <li>
-                    <button id="dark-theme-toggle" class="darkThemeToggle">
-                        <ion-icon name="sunny-outline" class="sun"></ion-icon>
-                        <ion-icon name="moon-outline" class="moon"></ion-icon>
-                    </button>
-                </li>
-            </ul>
-        </div>
+    <div class="nav">
+        <ul>
+            <li>
+                <a>
+                    <span class="icon"><ion-icon name="code-slash-outline"></ion-icon></span>
+                    <span class="title">Intelligent Mirror</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/home/{helloname}(helloname=${helloname})}">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/home/personalization/{helloname}(helloname=${helloname})}">
+                    <span class="icon"><ion-icon name="brush-outline"></ion-icon></span>
+                    <span class="title">Personalization</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/home/gallery/{helloname}(helloname=${helloname})}">
+                    <span class="icon"><ion-icon name="images-outline"></ion-icon></span>
+                    <span class="title">Gallery</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/home/account/{helloname}(helloname=${helloname})}">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="title">Account</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/home/settings/{helloname}(helloname=${helloname})}">
+                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                    <span class="title">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/logout}">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Logout</span>
+                </a>
+            </li>
+            <li>
+                <button id="dark-theme-toggle" class="darkThemeToggle">
+                    <ion-icon name="sunny-outline" class="sun"></ion-icon>
+                    <ion-icon name="moon-outline" class="moon"></ion-icon>
+                </button>
+            </li>
+        </ul>
     </div>
+</div>
 
     <div class="main">
         <div class="header">
@@ -81,6 +80,9 @@
         <div class="tileBox">
             <div class="tile" th:each="picture: ${pictures}">
                 <img th:src="${picture}" alt="date">
+                <div class="date">30.10.2022 15:43</div>
+                <a class="downloadButton" th:href="${picture}" download><ion-icon name="arrow-down-outline"></ion-icon></a>
+                <button class="deleteButton"><ion-icon name="trash-outline"></ion-icon></button>
             </div>
         </div>
 

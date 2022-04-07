@@ -1,17 +1,17 @@
-.tileBox{
+/* .tileBox{
     position: relative;
     width: 100%;
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-gap:30px;
-}
+} */
 .tileBox2{
     position: relative;
     width: 100%;
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap:30px;
 }
 .tile{
@@ -19,12 +19,12 @@
     padding: 30px;
     box-shadow: 0 7px 25px rgba(0,0,0,0.2);
     border-radius: 20px;
-    display: flex;
+    display: block;
     justify-content: space-between;
     color: var(--black);
     background: var(--tile);
 }
-.tile .numbers{
+/* .tile .numbers{
     position: relative;
     font-weight: 500;
     font-size: 2.5em;
@@ -36,7 +36,7 @@
 .tile .iconBox{
     font-size: 3.5em;
     margin-left: 10px;
-}
+} */
 .tileHeader{
     font-size: 2.1em;
 }
@@ -44,10 +44,12 @@
     position: relative;
     border-bottom: 2px solid #adadad;
     margin:30px 0;
+    max-width: 400px;
 }
 .text-field input{
     color: var(--black);
     width:100%;
+    max-width: 400px;
     padding: 0 5px;
     height:40px;
     font-size: 16px;
@@ -104,6 +106,30 @@ ul.upcomingEvents li{
     padding-bottom: 15px;
     list-style: none;
     border-top: 1px var(--black) dashed;
+    width: auto;
+    min-height: 70px;
+    position: relative;
+    word-wrap: break-word;
+}
+ul.upcomingEvents li button.deleteButton{
+    position: absolute;
+    font-size: 40px;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    border: none;
+    display: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--yellow);
+    cursor: pointer;
+}
+ul.upcomingEvents li:hover button.deleteButton{
+    display: block;
+}
+ul.upcomingEvents li button.deleteButton ion-icon{
+    color: var(--black);
 }
 ul.upcomingEvents li:first-child{
     border-top: none;
@@ -111,41 +137,30 @@ ul.upcomingEvents li:first-child{
 ul.upcomingEvents li p{
     font-size: 20px;
 }
-.welcome{
-    width: 100%;
-    text-align: center;
-    margin-top: 50px;
+div[title~="welcome"]{
+    background: none;
+    box-shadow:none;
 }
-.welcome a{
+div[title~="welcome"] a{
     font-size: 35px;
     color: var(--black);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-@media (max-width:1315px){
+/* @media (max-width:1315px){
     .tileBox{
         grid-template-columns: repeat(3,1fr);
     }
-}
-@media (max-width:1041px){
-    .nav{
-        left: -330px;
-    }
-    .main{
-        width:100%;
-        left: 0;
-    }
-    .main.active{
-        left: 330px;
-    }
-    .nav.active{
-        left: 0;
-        width: 330px;
-    }
-    .tileBox{
+} */
+@media (max-width:1155px){
+    .tileBox2{
         grid-template-columns: repeat(2,1fr);
     }
 }
-@media (max-width:530px){
-    .tileBox{
+@media (max-width:800px){
+    .tileBox2{
         grid-template-columns: repeat(1,1fr);
     }
 }

@@ -9,63 +9,63 @@
     <link th:href="@{/account.css}" rel="stylesheet" />
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 </head>
 <body>
-    <div class="navbar">
-        <div class="nav">
-            <ul>
-                <li>
-                    <a>
-                        <span class="icon"><ion-icon name="code-slash-outline"></ion-icon></span>
-                        <span class="title">Intelligent Mirror</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/home/{helloname}(helloname=${helloname})}">
-                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                        <span class="title">Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/home/personalization/{helloname}(helloname=${helloname})}">
-                        <span class="icon"><ion-icon name="brush-outline"></ion-icon></span>
-                        <span class="title">Personalization</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/home/gallery/{helloname}(helloname=${helloname})}">
-                        <span class="icon"><ion-icon name="images-outline"></ion-icon></span>
-                        <span class="title">Gallery</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/home/account/{helloname}(helloname=${helloname})}">
-                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-                        <span class="title">Account</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/home/settings/{helloname}(helloname=${helloname})}">
-                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-                        <span class="title">Settings</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/logout}">
-                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                        <span class="title">Logout</span>
-                    </a>
-                </li>
-                <li>
-                    <button id="dark-theme-toggle" class="darkThemeToggle">
-                        <ion-icon name="sunny-outline" class="sun"></ion-icon>
-                        <ion-icon name="moon-outline" class="moon"></ion-icon>
-                    </button>
-                </li>
-            </ul>
-        </div>
+<div class="navbar">
+    <div class="nav">
+        <ul>
+            <li>
+                <a>
+                    <span class="icon"><ion-icon name="code-slash-outline"></ion-icon></span>
+                    <span class="title">Intelligent Mirror</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/home/{helloname}(helloname=${helloname})}">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/home/personalization/{helloname}(helloname=${helloname})}">
+                    <span class="icon"><ion-icon name="brush-outline"></ion-icon></span>
+                    <span class="title">Personalization</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/home/gallery/{helloname}(helloname=${helloname})}">
+                    <span class="icon"><ion-icon name="images-outline"></ion-icon></span>
+                    <span class="title">Gallery</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/home/account/{helloname}(helloname=${helloname})}">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="title">Account</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/home/settings/{helloname}(helloname=${helloname})}">
+                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                    <span class="title">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/logout}">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Logout</span>
+                </a>
+            </li>
+            <li>
+                <button id="dark-theme-toggle" class="darkThemeToggle">
+                    <ion-icon name="sunny-outline" class="sun"></ion-icon>
+                    <ion-icon name="moon-outline" class="moon"></ion-icon>
+                </button>
+            </li>
+        </ul>
     </div>
+</div>
+
 
     <div class="main">
         <div class="header">
@@ -80,39 +80,81 @@
         </div>
         <div class="tileBox">
             <div class="tile">
-                 <div>
+                <div>
                     <div class="tileName"><span data-th-text="${helloname}">XYZ</span> <span data-th-text="${hellolastname}">ZYX</span></div>
                     <div class="description">Joined 01.01.2022</div>
-                 </div>
+                </div>
                  <div class="photoBox">
                     <img src="../icons/frozone.jpg" alt="User photo">
                  </div>
             </div>
-            <div class="tile">
-                <ul>
-                    <li><a href="">Change email<ion-icon name="mail-outline"></ion-icon></a></li>
-                    <li><a href="">Change password<ion-icon name="key-outline"></ion-icon></a></li>
-                    <li><a href="">Change profile picture<ion-icon name="camera-outline"></ion-icon></a></li>
-                    <li><a href="">Delete account<ion-icon name="trash-bin-outline"></ion-icon></a></li>
-                </ul>
-            </div>
+            <div class="tileBox2">
                 <div class="tile">
-                <div>
-                    <div class="tileName">Upload images</div>
-                    <br>
-                    <div class="description">
-                        <form action="/imagesUpload">
-                        <label for="file">Select files:</label>
-                        <input type="file" id="file" name="file" multiple><br><br>
-                        <input type="submit" class="submit" value="Submit">
-                        </form>
+                    <ul>
+                        <li><a href="">Email configuration <ion-icon name="mail-outline"></ion-icon></a></li>
+                        <li><a href="">Change password <ion-icon name="key-outline"></ion-icon></a></li>
+                        <li><a href="">Change profile picture <ion-icon name="camera-outline"></ion-icon></a></li>
+                        <li><a href="">Delete account <ion-icon name="trash-bin-outline"></ion-icon></a></li>
+                    </ul>
+                </div>
+                <div class="tile">
+                    <div>
+                        <div class="tileName">Upload images</div>
+                        <br>
+                        <div class="description">
+                            <form action="/imagesUpload">
+                                <label for="file">Select files:</label>
+                                <input type="file" id="file" name="file" multiple><br><br>
+                                <input type="submit" class="submit" value="Submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile" title="spotify">
+                    <div>
+                        <div class="tileName"><video src="../static/spotifyLogo.mp4" autoplay width="80px"></video>Spotify login </div>
+                        <div class="form">
+                            <form action="">
+                                <div class="text-field">
+                                    <input type="text" required>
+                                    <span></span>
+                                    <label>Email</label>
+                                </div>
+                                <div class="text-field">
+                                    <input type="text" required>
+                                    <span></span>
+                                    <label>Password</label>
+                                </div>
+                                <input type="submit" title="spotifySubmit" value="Add event">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile" title="instagram">
+                    <div>
+                        <div class="tileName"><video src="../static/instagramLogo.mp4" autoplay width="80px"></video>Spotify login </div>
+                        <div class="form">
+                            <form action="">
+                                <div class="text-field">
+                                    <input type="text" required>
+                                    <span></span>
+                                    <label>Email</label>
+                                </div>
+                                <div class="text-field">
+                                    <input type="text" required>
+                                    <span></span>
+                                    <label>Password</label>
+                                </div>
+                                <input type="submit" title="instagramSubmit" value="Add event">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript" th:src="@{/darkTheme.js}"></script>
-    <script type="text/javascript" th:src="@{/menu.js}"></script>
-    <script type="text/javascript" th:src="@{/hovered.js}"></script>
+<script type="text/javascript" th:src="@{/darkTheme.js}"></script>
+<script type="text/javascript" th:src="@{/menu.js}"></script>
+<script type="text/javascript" th:src="@{/hovered.js}"></script>
 </body>
 </html>

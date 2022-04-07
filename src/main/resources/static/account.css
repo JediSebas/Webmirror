@@ -1,6 +1,7 @@
 .tileBox{
     position: relative;
     width: 100%;
+    height: 100%;
     padding: 20px;
 }
 .tileBox .tile{
@@ -13,14 +14,7 @@
     background: var(--tile);
     color: var(--black);
     margin-bottom: 30px;
-}
-.submit{
-    width:100px;
-    height:50px;
-    border: none;
-    background:var(--yellow);
-    border-radius: 5px;
-    font-family: 'Terminal';
+    width: 100%;
 }
 .tileBox .tile .tileName{
     font-size: 2.1em;
@@ -40,7 +34,7 @@
 }
 .tileBox .tile ul li{
     margin-bottom: 5px;
-    font-size:16px;
+    font-size:20px;
 }
 .tileBox .tile ul li a{
     text-decoration: none;
@@ -52,32 +46,148 @@
 .tileBox .tile ul li a:hover{
     text-decoration: underline;
 }
-@media (max-width:1315px){
-    .tileBox{
-        grid-template-columns: repeat(3,1fr);
-    }
+.tileBox2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:30px;
 }
-@media (max-width:1041px){
-    .nav{
-        left: -330px;
-    }
-    .main{
-        width:100%;
-        left: 0;
-    }
-    .main.active{
-        left: 330px;
-    }
-    .nav.active{
-        left: 0;
-        width: 330px;
-    }
-    .tileBox{
-        grid-template-columns: repeat(2,1fr);
-    }
+.tileBox2 .tile{
+    margin: 0;
 }
-@media (max-width:530px){
-    .tileBox{
-        grid-template-columns: repeat(1,1fr);
-    }
+.tile[title~="spotify"]{
+    background-color: #1DB954;
+    font-size: 20px;
 }
+.tile[title~="spotify"] .tileName{
+    height: 90px;
+    width: 100%;
+    display: flex;
+    font-size: 45px;
+    color: white;
+    margin: 13px;
+    background: #161111;
+    border-radius: 10px; 
+}
+.tile[title~="spotify"] .tileName video{
+    margin: 0 10px;
+}
+.text-field{
+    position: relative;
+    border-bottom: 2px solid black;
+    margin:30px 0;
+    width: 100%;
+}
+.text-field input{
+    color: black;
+    width:100%;
+    padding: 0 5px;
+    height:40px;
+    font-size: 16px;
+    border:none;
+    background:none;
+    outline:none;
+    font-family: 'Terminal';
+}
+.text-field label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: black;
+    transform: translateY(-50%);
+    pointer-events:none;
+    transition:0.5s;
+}
+.text-field span::before{
+    content:'';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: black;
+    transition:0.5s;
+}
+.text-field input:focus ~ label,
+.text-field input:valid ~ label{
+    top:-5px;
+    color: black;
+}
+.text-field input:focus ~ span::before,
+.text-field input:valid ~ span::before{
+    width: 100%;
+}
+input[type="submit"]{
+    width: 100%;
+    height: 50px;
+    font-family: 'Terminal';
+    border: 1px solid #000;
+    border-radius:15px;
+    background: var(--yellow);
+    font-size: 26px;
+    outline:none;
+}
+input[type="submit"]:hover{
+    border-color: var(--yellow);
+    background: #000;
+    color: var(--yellow);
+}
+input[title="spotifySubmit"]{
+    width: 100%;
+    height: 50px;
+    font-family: 'Terminal';
+    border: 1px solid #000;
+    border-radius:15px;
+    background: black;
+    color: #1DB954;
+    font-size: 26px;
+    outline:none;
+}
+input[title="spotifySubmit"]:hover{
+    border-color: black;
+    background: #1DB954;
+    color: black;
+    cursor: pointer;
+}
+.tile[title~="instagram"]{
+    background-image: url(../icons/instagram.jpg);
+    background-size:cover; 
+    font-size: 20px;
+}
+.tile[title~="instagram"] .tileName{
+    height: 90px;
+    width: 100%;
+    display: flex;
+    font-size: 45px;
+    color: white;
+    margin: 13px;
+    background: #161111;
+    border-radius: 10px; 
+}
+.tile[title~="instagram"] .tileName video{
+    margin: 0 10px;
+}
+input[title="instagramSubmit"]{
+    width: 100%;
+    height: 50px;
+    font-family: 'Terminal';
+    border: 1px solid #000;
+    border-radius:15px;
+    background: black;
+    color: #cc3d7d;
+    font-size: 26px;
+    outline:none;
+}
+input[title="instagramSubmit"]:hover{
+    border-color: black;
+    background-image: url(../icons/instagram.jpg);
+    background-size:cover; 
+    color: black;
+    cursor: pointer;
+}
+ @media (max-width:800px){
+    .tileBox2{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap:30px;
+    }
+} 

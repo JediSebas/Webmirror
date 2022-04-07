@@ -9,63 +9,63 @@
     <link th:href="@{/home.css}" rel="stylesheet" />
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+    <link rel="shortcut icon" href="../files/ico.png">
 </head>
 <body>
     <div class="navbar">
-        <div class="nav">
-            <ul>
-                <li>
-                    <a>
-                        <span class="icon"><ion-icon name="code-slash-outline"></ion-icon></span>
-                        <span class="title">Intelligent Mirror</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/home/{helloname}(helloname=${helloname})}">
-                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                        <span class="title">Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/home/personalization/{helloname}(helloname=${helloname})}">
-                        <span class="icon"><ion-icon name="brush-outline"></ion-icon></span>
-                        <span class="title">Personalization</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/home/gallery/{helloname}(helloname=${helloname})}">
-                        <span class="icon"><ion-icon name="images-outline"></ion-icon></span>
-                        <span class="title">Gallery</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/home/account/{helloname}(helloname=${helloname})}">
-                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-                        <span class="title">Account</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/home/settings/{helloname}(helloname=${helloname})}">
-                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-                        <span class="title">Settings</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/logout}">
-                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                        <span class="title">Logout</span>
-                    </a>
-                </li>
-                <li>
-                    <button id="dark-theme-toggle" class="darkThemeToggle">
-                        <ion-icon name="sunny-outline" class="sun"></ion-icon>
-                        <ion-icon name="moon-outline" class="moon"></ion-icon>
-                    </button>
-                </li>
-            </ul>
-        </div>
+    <div class="nav">
+        <ul>
+            <li>
+                <a>
+                    <span class="icon"><ion-icon name="code-slash-outline"></ion-icon></span>
+                    <span class="title">Intelligent Mirror</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/home/{helloname}(helloname=${helloname})}">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/home/personalization/{helloname}(helloname=${helloname})}">
+                    <span class="icon"><ion-icon name="brush-outline"></ion-icon></span>
+                    <span class="title">Personalization</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/home/gallery/{helloname}(helloname=${helloname})}">
+                    <span class="icon"><ion-icon name="images-outline"></ion-icon></span>
+                    <span class="title">Gallery</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/home/account/{helloname}(helloname=${helloname})}">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="title">Account</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/home/settings/{helloname}(helloname=${helloname})}">
+                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                    <span class="title">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/logout}">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Logout</span>
+                </a>
+            </li>
+            <li>
+                <button id="dark-theme-toggle" class="darkThemeToggle">
+                    <ion-icon name="sunny-outline" class="sun"></ion-icon>
+                    <ion-icon name="moon-outline" class="moon"></ion-icon>
+                </button>
+            </li>
+        </ul>
     </div>
+</div>
 
     <div class="main">
         <div class="header">
@@ -73,14 +73,13 @@
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
             <div class="user">
-                <a th:href="@{/home/account/{helloname}(helloname=${helloname})}">
+                <a href="../account/account.html">
                     <img src="../icons/frozone.jpg" alt="user photo">
                 </a>
             </div>
         </div>
-                <div class="tileBox2">
-            <div class="tile">
-                <div>
+        <div class="tileBox2">
+            <div class="tile" title="eventAddingForm">
                     <div class="tileHeader">Add event</div>
                     <div class="form">
                         <form th:action="@{/addevent}" method="post">
@@ -105,10 +104,12 @@
                             <input type="submit" value="Add event">
                         </form>
                     </div>
-                </div>
+            </div>
+            <div class="tile" title="welcome">
+                <a>Welcome,<br>
+                    <span data-th-text="${helloname}">XYZ</span></a>
             </div>
             <div class="tile">
-                <div>
                     <div class="tileHeader">Upcoming events</div>
                     <ul class="upcomingEvents">
                         <li th:each="event: ${events}">
@@ -116,13 +117,9 @@
                             <p th:text="${event.date}"></p>
                         </li>
                     </ul>
-                </div>
             </div>
         </div>
-        <div class="welcome">
-            <a>Welcome,<br>
-            <span data-th-text="${helloname}">XYZ</span></a>
-        </div>
+
 
     </div>
     <script type="text/javascript" th:src="@{/darkTheme.js}"></script>

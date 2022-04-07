@@ -3,53 +3,86 @@
     width: 100%;
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(5,1fr);
-    grid-gap:30px;
+    grid-template-columns: repeat(6,1fr);
+    grid-gap:auto;
 }
 .tileBox .tile{
     position: relative;
-    padding: 30px;
+    width:310px;
+    height: 550px;
+    padding:20px;
     box-shadow: 0 7px 25px rgba(0,0,0,0.2);
     border-radius: 20px;
-    display: block;
     color: var(--black);
     background: var(--tile);
-}
-.tileBox .tile .date{
-    position: relative;
-    font-size: 1em;
-    width:100%;
-    text-align:center;
-    margin-top:5px;
+    margin-bottom: 20px;
 }
 .tileBox .tile img{
-    width:100%;
+    width:270px;
+    height: 480px;
 }
-@media (max-width:1315px){
+.tileBox .tile .description{
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+.tileBox .tile .description .date{
+    position: relative;
+    font-size: 18px;
+    width:70%;
+    text-align:center;
+    margin-top:10px;
+}
+.tileBox .tile .description .downloadButton{
+    width: 15%;
+    color:var(--black);
+    font-size: 18px;
+    margin:5px;
+    padding: 5px;
+    border-radius:40%;
+    text-align:center;
+}
+.tileBox .tile .description .deleteButton{
+    background: transparent;
+    border: none;
+    width: 15%;
+    color:var(--black);
+    font-size: 20px;
+    margin:5px;
+    padding: 5px;
+    border-radius:40%;
+    text-align:center;
+    cursor: pointer;
+}
+.tileBox .tile .description .downloadButton:hover{
+    background: var(--black);
+    color: var(--white);
+}
+.tileBox .tile .description .deleteButton:hover{
+    background: red;
+    color: white;
+}
+@media (max-width:2280px){
+    .tileBox{
+        grid-template-columns: repeat(5,1fr);
+    }
+}
+@media (max-width:1970px){
+    .tileBox{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+@media (max-width:1650px){
     .tileBox{
         grid-template-columns: repeat(3,1fr);
     }
 }
-@media (max-width:1041px){
-    .nav{
-        left: -330px;
-    }
-    .main{
-        width:100%;
-        left: 0;
-    }
-    .main.active{
-        left: 330px;
-    }
-    .nav.active{
-        left: 0;
-        width: 330px;
-    }
+@media (max-width:1350px){
     .tileBox{
         grid-template-columns: repeat(2,1fr);
     }
 }
-@media (max-width:530px){
+@media (max-width:710px){
     .tileBox{
         grid-template-columns: repeat(1,1fr);
     }

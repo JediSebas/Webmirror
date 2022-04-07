@@ -1,5 +1,7 @@
 package com.jedisebas.webmirror;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Calendar;
@@ -8,7 +10,8 @@ import java.util.Calendar;
 @Table(name = "event", schema = "event")
 public class Event implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
+    @GenericGenerator(name = "native",strategy = "native")
     @Column(name = "id", nullable = false)
     private Long id;
     private Long userid;

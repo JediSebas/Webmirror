@@ -1,9 +1,11 @@
 package com.jedisebas.webmirror;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -33,4 +35,19 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(value = "SELECT name FROM pictures WHERE userid = ?1", nativeQuery = true)
     ArrayList<String> findPicturesByUserId(Long userId);
+
+    @Transactional
+    @Modifying
+    @Query("DELETE User u WHERE u.id = ?1")
+    void deleteUser(Long userId);
+
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM event WHERE userid = ?1", nativeQuery = true)
+    void deleteEvent(Long userId);
+
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM pictures WHERE userid = ?1", nativeQuery = true)
+    void deletePicture(Long userId);
 }

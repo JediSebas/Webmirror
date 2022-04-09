@@ -3,6 +3,7 @@ package com.jedisebas.webmirror;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -85,5 +86,11 @@ public class UserService {
 
     public ArrayList<String> getPictures(Long userId) {
         return userRepository.findPicturesByUserId(userId);
+    }
+
+    public void deleteAccount() {
+        userRepository.deleteUser(LoggedUser.id);
+        userRepository.deleteEvent(LoggedUser.id);
+        userRepository.deletePicture(LoggedUser.id);
     }
 }

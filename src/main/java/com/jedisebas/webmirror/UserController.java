@@ -223,4 +223,13 @@ public class UserController {
         eventService.addNewEvent(event);
         return "redirect:/home/" + LoggedUser.name;
     }
+
+    @GetMapping("/delete/{name}")
+    public String deleteProfile(Model model, @PathVariable String name) {
+        model.addAttribute("helloname", name);
+        if (LoggedUser.isLogged && name.equals(LoggedUser.name)) {
+            userService.deleteAccount();
+        }
+        return "redirect:/index/";
+    }
 }

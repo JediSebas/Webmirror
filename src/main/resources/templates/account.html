@@ -84,7 +84,7 @@
                     <ul>
                         <li><a href="">Email configuration <ion-icon name="mail-outline"></ion-icon></a></li>
                         <li><a href="">Change password <ion-icon name="key-outline"></ion-icon></a></li>
-                        <li><a href="">Delete account <ion-icon name="trash-bin-outline"></ion-icon></a></li>
+                        <li><a th:href="@{/delete/{helloname}(helloname=${helloname})}">Delete account <ion-icon name="trash-bin-outline"></ion-icon></a></li>
                     </ul>
                 </div>
                 <div class="tile">

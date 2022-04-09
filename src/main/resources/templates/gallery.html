@@ -71,11 +71,6 @@
             <div class="toggle">
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
-            <div class="user">
-                <a th:href="@{/home/account/{helloname}(helloname=${helloname})}">
-                    <img src="../icons/frozone.jpg" alt="user photo">
-                </a>
-            </div>
         </div>
         <div class="tileBox">
             <div class="tile" th:each="picture: ${pictures}">

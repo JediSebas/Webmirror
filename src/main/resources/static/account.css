@@ -149,7 +149,7 @@ input[title="spotifySubmit"]:hover{
     cursor: pointer;
 }
 .tile[title~="instagram"]{
-    background-image: url(../icons/instagram.jpg);
+    background-image: url(instagram.jpg);
     background-size:cover; 
     font-size: 20px;
 }
@@ -179,7 +179,7 @@ input[title="instagramSubmit"]{
 }
 input[title="instagramSubmit"]:hover{
     border-color: black;
-    background-image: url(../icons/instagram.jpg);
+    background-image: url(instagram.jpg);
     background-size:cover; 
     color: black;
     cursor: pointer;

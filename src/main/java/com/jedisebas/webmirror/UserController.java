@@ -5,6 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +22,8 @@ public class UserController {
 
     public final UserService userService;
     public final EventService eventService;
+
+    public static String ip = "192.168.1.185";
 
     @Autowired
     public UserController(UserService userService, EventService eventService) {
@@ -106,7 +115,7 @@ public class UserController {
             System.out.println(pictures);
             List<String> picturesFinal = new ArrayList<>();
             for (String str: pictures) {
-                picturesFinal.add("http://localhost/mirror/" + str);
+                picturesFinal.add("http://"+ip+"/mirror/" + str);
             }
             List<Picture> pictureList = new ArrayList<>();
             for (int i=0; i<pictures.size(); i++) {
@@ -254,6 +263,15 @@ public class UserController {
         model.addAttribute("helloname", name);
         if (LoggedUser.isLogged && name.equals(LoggedUser.name)) {
             userService.deletePicture(picture_name);
+        }
+        return "redirect:/home/gallery/" + name;
+    }
+
+    @PostMapping("/downloadPicture/{picture_name}")
+    public String downloadPicture(Model model, @PathVariable String picture_name) {
+        model.addAttribute("helloname", name);
+        if (LoggedUser.isLogged && name.equals(LoggedUser.name)) {
+            new FTPConfig().download();
         }
         return "redirect:/home/gallery/" + name;
     }

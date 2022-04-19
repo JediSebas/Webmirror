@@ -3,13 +3,13 @@
     width: 100%;
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(2,1fr);
     grid-gap:auto;
 }
 .tileBox .tile{
     position: relative;
-    width:310px;
-    height: 550px;
+    width:90%;
+    height: auto;
     padding:20px;
     box-shadow: 0 7px 25px rgba(0,0,0,0.2);
     border-radius: 20px;
@@ -18,13 +18,15 @@
     margin-bottom: 20px;
 }
 .tileBox .tile img{
-    width:270px;
-    height: 480px;
+    max-width:640px;
+    max-height: 480px;
+    width:100%;
 }
 .tileBox .tile .description{
     position: relative;
     width: 100%;
     display: flex;
+    height:40px;
 }
 .tileBox .tile .description .date{
     position: relative;
@@ -34,7 +36,7 @@
     margin-top:10px;
 }
 .tileBox .tile .description .downloadButton{
-    width: 15%;
+    width: 40px;
     color:var(--black);
     font-size: 18px;
     margin:5px;
@@ -45,10 +47,11 @@
 .tileBox .tile .description .deleteButton{
     background: transparent;
     border: none;
-    width: 15%;
+    width: 40px;
     color:var(--black);
     font-size: 20px;
     margin:5px;
+    margin-left: 20px;
     padding: 5px;
     border-radius:40%;
     text-align:center;
@@ -62,27 +65,8 @@
     background: red;
     color: white;
 }
-@media (max-width:2280px){
-    .tileBox{
-        grid-template-columns: repeat(5,1fr);
-    }
-}
-@media (max-width:1970px){
-    .tileBox{
-        grid-template-columns: repeat(4,1fr);
-    }
-}
-@media (max-width:1650px){
-    .tileBox{
-        grid-template-columns: repeat(3,1fr);
-    }
-}
-@media (max-width:1350px){
-    .tileBox{
-        grid-template-columns: repeat(2,1fr);
-    }
-}
-@media (max-width:710px){
+
+@media (max-width:550px){
     .tileBox{
         grid-template-columns: repeat(1,1fr);
     }

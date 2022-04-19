@@ -75,8 +75,8 @@
         <div class="tileBox">
             <div class="tile" th:each="picture: ${pictures}">
                 <img th:src="${picture.url}" alt="date">
-                <div class="date">30.10.2022 15:43</div>
-                <a class="downloadButton" th:href="${picture.url}" download><ion-icon name="arrow-down-outline"></ion-icon></a>
+                <div class="date"></div>
+                <form th:action="@{/downloadPicture/{picture.name}(picture.name=${picture.name})}" method="post"><button class="downloadButton"><ion-icon name="arrow-down-outline"></ion-icon></button></form>
                 <form th:action="@{/deletePicture/{picture.name}(picture.name=${picture.name})}" method="post"><button class="deleteButton"><ion-icon name="trash-outline"></ion-icon></button></form>
             </div>
         </div>

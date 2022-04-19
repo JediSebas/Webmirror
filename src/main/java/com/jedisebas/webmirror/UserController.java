@@ -108,7 +108,11 @@ public class UserController {
             for (String str: pictures) {
                 picturesFinal.add("http://localhost/mirror/" + str);
             }
-            model.addAttribute("pictures", picturesFinal);
+            List<Picture> pictureList = new ArrayList<>();
+            for (int i=0; i<pictures.size(); i++) {
+                pictureList.add(new Picture(pictures.get(i), picturesFinal.get(i)));
+            }
+            model.addAttribute("pictures", pictureList);
             return "gallery";
         } else {
             return "redirect:/index/";
@@ -243,5 +247,14 @@ public class UserController {
             eventService.deleteEvent(event_name);
         }
         return "redirect:/home/" + name;
+    }
+
+    @PostMapping("/deletePicture/{picture_name}")
+    public String deletePicture(Model model, @PathVariable String picture_name) {
+        model.addAttribute("helloname", name);
+        if (LoggedUser.isLogged && name.equals(LoggedUser.name)) {
+            userService.deletePicture(picture_name);
+        }
+        return "redirect:/home/gallery/" + name;
     }
 }

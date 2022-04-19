@@ -50,4 +50,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Modifying
     @Query(value = "DELETE FROM pictures WHERE userid = ?1", nativeQuery = true)
     void deletePicture(Long userId);
+
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM pictures WHERE name = ?1", nativeQuery = true)
+    void deletePictureByName(String picture_name);
 }

@@ -1,11 +1,14 @@
 package com.jedisebas.webmirror;
 
+import org.apache.juli.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.jedisebas.webmirror.LoggedUser.name;
 
 @Controller
 public class UserController {
@@ -62,7 +65,7 @@ public class UserController {
     @GetMapping("/logout")
     public String logoutView() {
         LoggedUser.id = null;
-        LoggedUser.name = null;
+        name = null;
         LoggedUser.lastname = null;
         LoggedUser.password = null;
         LoggedUser.email = null;
@@ -221,7 +224,7 @@ public class UserController {
         event.setUserid(LoggedUser.id);
         event.setDate(res);
         eventService.addNewEvent(event);
-        return "redirect:/home/" + LoggedUser.name;
+        return "redirect:/home/" + name;
     }
 
     @GetMapping("/delete/{name}")
@@ -231,5 +234,14 @@ public class UserController {
             userService.deleteAccount();
         }
         return "redirect:/index/";
+    }
+
+    @PostMapping("/deleteEvent/{event_name}")
+    public String deleteEvent(Model model, @PathVariable String event_name) {
+        model.addAttribute("helloname", name);
+        if (LoggedUser.isLogged && name.equals(LoggedUser.name)) {
+            eventService.deleteEvent(event_name);
+        }
+        return "redirect:/home/" + name;
     }
 }

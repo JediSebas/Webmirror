@@ -110,6 +110,7 @@
                         <li th:each="event: ${events}">
                             <p th:text="${event.name}"></p>
                             <p th:text="${event.date}"></p>
+                            <form th:action="@{/deleteEvent/{event.name}(event.name=${event.name})}" method="post"><button class="deleteButton" type="submit"><ion-icon name="close-outline"></ion-icon></button></form>
                         </li>
                     </ul>
             </div>

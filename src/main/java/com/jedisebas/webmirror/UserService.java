@@ -93,4 +93,8 @@ public class UserService {
         userRepository.deleteEvent(LoggedUser.id);
         userRepository.deletePicture(LoggedUser.id);
     }
+
+    public void deletePicture(String picture_name) {
+        userRepository.deletePictureByName(picture_name);
+    }
 }

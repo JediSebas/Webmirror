@@ -23,4 +23,8 @@ public class EventService {
     public ArrayList<Event> getEvents(Long userid) {
         return eventRepository.findEventsByUserId(userid);
     }
+
+    public void deleteEvent(String event_name) {
+        eventRepository.deleteEvent(event_name);
+    }
 }

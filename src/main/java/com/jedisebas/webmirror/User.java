@@ -44,10 +44,12 @@ public class User implements Serializable {
     private int spotify_y = 700;
     private byte spotify_event = 0;
 
+    private byte vm = 1;
+
     public User() {
     }
 
-    public User(Long id, String name, String lastname, String password, String email, String emailpassword, String nick, String instagram_login, String instagram_password, byte time_event, byte weather_event, byte gmail_event, byte quote_event, byte calendar_event, byte photos_event, byte instagram_event, int time_x, int weather_x, int gmail_x, int quote_x, int calendar_x, int photos_x, int time_y, int weather_y, int gmail_y, int quote_y, int calendar_y, int photos_y, int spotify_x, int spotify_y, byte spotify_event) {
+    public User(Long id, String name, String lastname, String password, String email, String emailpassword, String nick, String instagram_login, String instagram_password, byte time_event, byte weather_event, byte gmail_event, byte quote_event, byte calendar_event, byte photos_event, byte instagram_event, int time_x, int weather_x, int gmail_x, int quote_x, int calendar_x, int photos_x, int time_y, int weather_y, int gmail_y, int quote_y, int calendar_y, int photos_y, int spotify_x, int spotify_y, byte spotify_event, byte vm) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
@@ -79,6 +81,7 @@ public class User implements Serializable {
         this.spotify_x = spotify_x;
         this.spotify_y = spotify_y;
         this.spotify_event = spotify_event;
+        this.vm = vm;
     }
 
     public Long getId() {
@@ -340,5 +343,13 @@ public class User implements Serializable {
 
     public void setSpotify_event(byte spotify_event) {
         this.spotify_event = spotify_event;
+    }
+
+    public byte getVm() {
+        return vm;
+    }
+
+    public void setVm(byte vm) {
+        this.vm = vm;
     }
 }

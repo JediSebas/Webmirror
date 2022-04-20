@@ -54,23 +54,6 @@
 .tileBox2 .tile{
     margin: 0;
 }
-.tile[title~="spotify"]{
-    background-color: #1DB954;
-    font-size: 20px;
-}
-.tile[title~="spotify"] .tileName{
-    height: 90px;
-    width: 100%;
-    display: flex;
-    font-size: 45px;
-    color: white;
-    margin: 13px;
-    background: #161111;
-    border-radius: 10px; 
-}
-.tile[title~="spotify"] .tileName video{
-    margin: 0 10px;
-}
 .text-field{
     position: relative;
     border-bottom: 2px solid black;
@@ -131,26 +114,9 @@ input[type="submit"]:hover{
     background: #000;
     color: var(--yellow);
 }
-input[title="spotifySubmit"]{
-    width: 100%;
-    height: 50px;
-    font-family: 'Terminal';
-    border: 1px solid #000;
-    border-radius:15px;
-    background: black;
-    color: #1DB954;
-    font-size: 26px;
-    outline:none;
-}
-input[title="spotifySubmit"]:hover{
-    border-color: black;
-    background: #1DB954;
-    color: black;
-    cursor: pointer;
-}
 .tile[title~="instagram"]{
     background-image: url(instagram.jpg);
-    background-size:cover; 
+    background-size:cover;
     font-size: 20px;
 }
 .tile[title~="instagram"] .tileName{
@@ -161,7 +127,7 @@ input[title="spotifySubmit"]:hover{
     color: white;
     margin: 13px;
     background: #161111;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 .tile[title~="instagram"] .tileName video{
     margin: 0 10px;

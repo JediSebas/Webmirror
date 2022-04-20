@@ -23,7 +23,7 @@ public class UserController {
     public final UserService userService;
     public final EventService eventService;
 
-    public static String ip = "192.168.1.185";
+    public static String ip = "192.168.0.50";
 
     @Autowired
     public UserController(UserService userService, EventService eventService) {
@@ -271,8 +271,23 @@ public class UserController {
     public String downloadPicture(Model model, @PathVariable String picture_name) {
         model.addAttribute("helloname", name);
         if (LoggedUser.isLogged && name.equals(LoggedUser.name)) {
-            new FTPConfig().download();
+            new FTPConfig().download(picture_name);
         }
         return "redirect:/home/gallery/" + name;
+    }
+
+    @PostMapping("/uploadPicture")
+    public String uploadPicutre(Model model) {
+        model.addAttribute("helloname", name);
+        return "redirect:/home/account/" + name;
+    }
+
+    @PostMapping("/registerIg")
+    public String registerInstagram(Model model, @ModelAttribute User user) {
+        model.addAttribute("helloname", name);
+        if (LoggedUser.isLogged && name.equals(LoggedUser.name)) {
+            userService.registerIg(user);
+        }
+        return "redirect:/home/account/" + name;
     }
 }

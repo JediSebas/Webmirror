@@ -43,6 +43,8 @@
     padding: 5px;
     border-radius:40%;
     text-align:center;
+    border: none;
+    background: var(--white);
 }
 .tileBox .tile .description .deleteButton{
     background: transparent;
@@ -60,6 +62,7 @@
 .tileBox .tile .description .downloadButton:hover{
     background: var(--black);
     color: var(--white);
+    cursor: pointer;
 }
 .tileBox .tile .description .deleteButton:hover{
     background: red;

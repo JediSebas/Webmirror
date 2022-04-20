@@ -31,11 +31,11 @@ public class FTPConfig {
         session.close();
     }
 
-    public String download() {
+    public String download(String picture_name) {
         FtpSession session = ftpSessionFactory().getSession();
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         try {
-            session.read("/var/www/html/mirror/file.jpg", outputStream);
+            session.read("/var/www/html/mirror/" + picture_name, outputStream);
             return outputStream.toString();
         } catch (IOException e) {
             throw new RuntimeException(e);

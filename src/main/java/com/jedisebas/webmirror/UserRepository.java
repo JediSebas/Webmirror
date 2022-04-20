@@ -55,4 +55,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Modifying
     @Query(value = "DELETE FROM pictures WHERE name = ?1", nativeQuery = true)
     void deletePictureByName(String picture_name);
+
+    @Transactional
+    @Modifying(flushAutomatically = true, clearAutomatically = true)
+    @Query(value = "UPDATE `user` SET `instagram_login` = ?1, `instagram_password` = ?2 WHERE `user`.`id` = ?3", nativeQuery = true)
+    void setInstagramData(String ig_login, String ig_password, Long userid);
 }

@@ -28,24 +28,23 @@ public class User implements Serializable {
     private byte calendar_event;
     private byte photos_event;
     private byte instagram_event;
-    private int time_x;
-    private int weather_x;
-    private int gmail_x;
-    private int quote_x;
-    private int calendar_x;
-    private int photos_x;
-    private int time_y;
-    private int weather_y;
-    private int gmail_y;
-    private int quote_y;
-    private int calendar_y;
-    private int photos_y;
-    private String instagram_place  = "";
+    private int time_x = 100;
+    private int weather_x = 200;
+    private int gmail_x = 300;
+    private int quote_x = 400;
+    private int calendar_x = 500;
+    private int photos_x = 600;
+    private int time_y = 100;
+    private int weather_y = 200;
+    private int gmail_y = 300;
+    private int quote_y = 400;
+    private int calendar_y = 500;
+    private int photos_y = 600;
 
     public User() {
     }
 
-    public User(Long id, String name, String lastname, String password, String email, String emailpassword, String nick, String instagram_login, String instagram_password, byte time_event, byte weather_event, byte gmail_event, byte quote_event, byte calendar_event, byte photos_event, byte instagram_event, int time_x, int weather_x, int gmail_x, int quote_x, int calendar_x, int photos_x, int time_y, int weather_y, int gmail_y, int quote_y, int calendar_y, int photos_y, String instagram_place) {
+    public User(Long id, String name, String lastname, String password, String email, String emailpassword, String nick, String instagram_login, String instagram_password, byte time_event, byte weather_event, byte gmail_event, byte quote_event, byte calendar_event, byte photos_event, byte instagram_event, int time_x, int weather_x, int gmail_x, int quote_x, int calendar_x, int photos_x, int time_y, int weather_y, int gmail_y, int quote_y, int calendar_y, int photos_y) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
@@ -74,7 +73,6 @@ public class User implements Serializable {
         this.quote_y = quote_y;
         this.calendar_y = calendar_y;
         this.photos_y = photos_y;
-        this.instagram_place = instagram_place;
     }
 
     public Long getId() {
@@ -312,13 +310,5 @@ public class User implements Serializable {
 
     public void setPhotos_y(int photos_y) {
         this.photos_y = photos_y;
-    }
-
-    public String getInstagram_place() {
-        return instagram_place;
-    }
-
-    public void setInstagram_place(String instagram_place) {
-        this.instagram_place = instagram_place;
     }
 }

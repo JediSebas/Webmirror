@@ -92,7 +92,7 @@
                         <div class="tileName">Upload images</div>
                         <br>
                         <div class="description">
-                            <form action="/imagesUpload">
+                            <form th:action="@{/uploadPicture}" method="post">
                                 <label for="file">Select files:</label>
                                 <input type="file" id="file" name="file" multiple><br><br>
                                 <input type="submit" class="submit" value="Submit">
@@ -100,38 +100,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="tile" title="spotify">
-                    <div>
-                        <div class="tileName"><video src="../static/spotifyLogo.mp4" autoplay width="80px"></video>Spotify login </div>
-                        <div class="form">
-                            <form action="">
-                                <div class="text-field">
-                                    <input type="text" required>
-                                    <span></span>
-                                    <label>Email</label>
-                                </div>
-                                <div class="text-field">
-                                    <input type="text" required>
-                                    <span></span>
-                                    <label>Password</label>
-                                </div>
-                                <input type="submit" title="spotifySubmit" value="Add event">
-                            </form>
-                        </div>
-                    </div>
-                </div>
                 <div class="tile" title="instagram">
                     <div>
-                        <div class="tileName"><video src="../static/instagramLogo.mp4" autoplay width="80px"></video>Spotify login </div>
+                        <div class="tileName"><video src="../static/instagramLogo.mp4" autoplay width="80px"></video>Instagram login </div>
                         <div class="form">
-                            <form action="">
+                            <form  th:action="@{/registerIg}" method="post">
                                 <div class="text-field">
-                                    <input type="text" required>
+                                    <input name="instagram_login" type="text" required>
                                     <span></span>
                                     <label>Email</label>
                                 </div>
                                 <div class="text-field">
-                                    <input type="text" required>
+                                    <input name="instagram_password" type="password" required>
                                     <span></span>
                                     <label>Password</label>
                                 </div>

@@ -97,4 +97,8 @@ public class UserService {
     public void deletePicture(String picture_name) {
         userRepository.deletePictureByName(picture_name);
     }
+
+    public void registerIg(User user) {
+        userRepository.setInstagramData(user.getInstagram_login(), user.getInstagram_password(), LoggedUser.id);
+    }
 }

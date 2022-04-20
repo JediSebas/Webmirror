@@ -21,13 +21,13 @@ public class User implements Serializable {
     private String nick;
     private String instagram_login;
     private String instagram_password;
-    private byte time_event;
-    private byte weather_event;
-    private byte gmail_event;
-    private byte quote_event;
-    private byte calendar_event;
-    private byte photos_event;
-    private byte instagram_event;
+    private byte time_event = 0;
+    private byte weather_event = 0;
+    private byte gmail_event = 0;
+    private byte quote_event = 0;
+    private byte calendar_event = 0;
+    private byte photos_event = 0;
+    private byte instagram_event = 0;
     private int time_x = 100;
     private int weather_x = 200;
     private int gmail_x = 300;
@@ -40,11 +40,14 @@ public class User implements Serializable {
     private int quote_y = 400;
     private int calendar_y = 500;
     private int photos_y = 600;
+    private int spotify_x = 700;
+    private int spotify_y = 700;
+    private byte spotify_event = 0;
 
     public User() {
     }
 
-    public User(Long id, String name, String lastname, String password, String email, String emailpassword, String nick, String instagram_login, String instagram_password, byte time_event, byte weather_event, byte gmail_event, byte quote_event, byte calendar_event, byte photos_event, byte instagram_event, int time_x, int weather_x, int gmail_x, int quote_x, int calendar_x, int photos_x, int time_y, int weather_y, int gmail_y, int quote_y, int calendar_y, int photos_y) {
+    public User(Long id, String name, String lastname, String password, String email, String emailpassword, String nick, String instagram_login, String instagram_password, byte time_event, byte weather_event, byte gmail_event, byte quote_event, byte calendar_event, byte photos_event, byte instagram_event, int time_x, int weather_x, int gmail_x, int quote_x, int calendar_x, int photos_x, int time_y, int weather_y, int gmail_y, int quote_y, int calendar_y, int photos_y, int spotify_x, int spotify_y, byte spotify_event) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
@@ -73,6 +76,9 @@ public class User implements Serializable {
         this.quote_y = quote_y;
         this.calendar_y = calendar_y;
         this.photos_y = photos_y;
+        this.spotify_x = spotify_x;
+        this.spotify_y = spotify_y;
+        this.spotify_event = spotify_event;
     }
 
     public Long getId() {
@@ -310,5 +316,29 @@ public class User implements Serializable {
 
     public void setPhotos_y(int photos_y) {
         this.photos_y = photos_y;
+    }
+
+    public int getSpotify_x() {
+        return spotify_x;
+    }
+
+    public void setSpotify_x(int spotify_x) {
+        this.spotify_x = spotify_x;
+    }
+
+    public int getSpotify_y() {
+        return spotify_y;
+    }
+
+    public void setSpotify_y(int spotify_y) {
+        this.spotify_y = spotify_y;
+    }
+
+    public byte getSpotify_event() {
+        return spotify_event;
+    }
+
+    public void setSpotify_event(byte spotify_event) {
+        this.spotify_event = spotify_event;
     }
 }

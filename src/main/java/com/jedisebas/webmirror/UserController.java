@@ -23,7 +23,7 @@ public class UserController {
     public final UserService userService;
     public final EventService eventService;
 
-    public static String ip = "192.168.0.50";
+    public static String ip = "192.168.193.50";
 
     @Autowired
     public UserController(UserService userService, EventService eventService) {
